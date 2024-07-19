@@ -29,7 +29,7 @@ func (p *Parser) Parse() *Node {
 		return p.parsePair()
 
 	default:
-		return NewErrorNode(fmt.Sprintf("Expected a ( or Char[a-z]. Error at column %d\n", p.sc.head_index))
+		return NewErrorNode(fmt.Sprintf("Expected a ( or Char[a-z]. Error at column %d\n", p.sc.head_index+1))
 	}
 }
 

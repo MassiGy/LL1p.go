@@ -14,6 +14,10 @@ func main() {
 
 			for sc.HasNext() {
 				node := parser.Parse()
+				if node.kind == ERROR_NODE {
+					fmt.Println(node.val.(string))
+					break
+				}
 				visit(*node, 0)
 			}
 		},
