@@ -9,9 +9,6 @@ import (
 func main() {
 	read_prompt_and_parse(
 		func(exp string) {
-			fmt.Println("Expression         : ", exp)
-			fmt.Println("Tree representation: ")
-
 			sc := NewScanner([]rune(exp), -1)
 			parser := NewParser(sc)
 
@@ -19,15 +16,30 @@ func main() {
 				node := parser.Parse()
 				visit(*node, 0)
 			}
-			fmt.Println(";")
 		},
 	)
 }
 
 func read_prompt_and_parse(parsefn func(exp string)) {
+	fmt.Println()
+	fmt.Println("Simple LL(1) grammer tokenizer & parser.")
+	fmt.Println("Author : Massiles Ghernaout (github.com/MassiGy)")
+	fmt.Println("Licence: MIT")
+	fmt.Println()
+	fmt.Println("Grammar:")
+	fmt.Println(" > Node -> Char | Pair")
+	fmt.Println(" > Char -> [a-z]")
+	fmt.Println(" > Pair -> ( . Node . Space . Node . )")
+	fmt.Println()
+	fmt.Println("Legend : ")
+	fmt.Println(" > '.' (dot) is the concatination operator.")
+	fmt.Println()
+
 	promptScanner := bufio.NewScanner(os.Stdin)
+	fmt.Print(">>> ")
 	for promptScanner.Scan() {
 		parsefn(promptScanner.Text())
+		fmt.Print(">>> ")
 	}
 }
 
