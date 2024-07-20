@@ -1,3 +1,3 @@
-module simple-LL_1-lang-parser-golang
+module ll1p.go
 
-go 1.22.3
+go 1.21.3
