@@ -1,6 +1,6 @@
 # ll1p.go
 
-This is a simple LL(1) grammar tokenizer & parser.
+This is a simple LL(1) grammar tokenizer & parser written in Go.
 LL(1) stands for: 
 - **L**eft to right tokenization.
 - **L**eftmost token is a terminal token.
